@@ -1,5 +1,3 @@
-require "pp"
-
 articles = { response: {
 status: "ok",
 userTier: "developer",
@@ -112,10 +110,25 @@ def read_article(articles)
   articles[:response][:results].sample[:views] += 1
 end
 
-read_article(articles)
-read_article(articles)
-read_article(articles)
-read_article(articles)
-read_article(articles)
 
-pp articles
+def display_views(articles)
+  articles[:response][:results].each do |article|
+    puts "Title: #{article[:webTitle]}"
+    puts "Viewed: #{article[:views]} times\n-----------"
+  end
+end
+
+read_article(articles)
+read_article(articles)
+read_article(articles)
+read_article(articles)
+read_article(articles)
+puts "after 5 article readings:\n\n"
+display_views(articles)
+
+read_article(articles)
+read_article(articles)
+read_article(articles)
+read_article(articles)
+puts "\n\nafter 4 more article readings\n\n"
+display_views(articles)
