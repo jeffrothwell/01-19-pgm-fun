@@ -108,4 +108,14 @@ articles[:response][:results].each do |result|
   result[:views] = 0
 end
 
-pp articles[:response][:results]
+def read_article(articles)
+  articles[:response][:results].sample[:views] += 1
+end
+
+read_article(articles)
+read_article(articles)
+read_article(articles)
+read_article(articles)
+read_article(articles)
+
+pp articles
